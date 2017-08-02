@@ -171,3 +171,66 @@ head(data)
 barplot(table(data$BIRTH.YEAR))
 ```
 Note: Due to memory constraints, you will not be able to read the entire data file.
+
+# Loading data in Postgres
+
+You may consider creating a database given the 2FM data.  The following should get you started.
+* First, start a PostgreSQL instance
+* Second, open the console
+
+
+Use psql to login as the postgres admin:
+```bash
+psql -U postgres
+```
+
+Create a database and user for the 2FM data:
+```bash
+CREATE DATABASE fm;
+CREATE USER fmuser  WITH ENCRYPTED PASSWORD 'fmpassword';
+GRANT USAGE ON SCHEMA public to fmuser;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO fmuser;
+GRANT CONNECT ON DATABASE fm to fmuser;
+\c fm
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO fmuser;
+GRANT USAGE ON SCHEMA public to fmuser; 
+GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO fmuser;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO fmuser;
+```
+
+Create a table and import the data from CSV:
+```bash
+CREATE TABLE ACTIVITY (
+ ACT_CODE VARCHAR(8) not null,
+ ACT_DESC VARCHAR(24)
+);
+
+COPY ACTIVITY FROM '/shared/2FM_Tech_Challenge/ACTIVITY.csv' WITH CSV HEADER  DELIMITER ',';
+```
+
+You can access this from Cloud9. The following example uses python:
+
+Open Cloud9 and create a new terminal. Install the postgres libraries:
+```
+apt-get update -y
+apt-get install -y postgresql-server-dev-all python-dev
+pip install psycopg2
+```
+
+Now, create a new python script to read the 2FM data from postgres. Replace "PGSQL_IP_ADDRESS" with the IP address of the Postgres instance, which you can find under the "Config" button in Workbench:
+
+```python
+import psycopg2
+
+conn = psycopg2.connect("dbname='fm' user='fmuser' host='PGSQL_IP_ADDRESS' port='5432' password='fmpassword'")
+cur = conn.cursor()
+cur.execute("SELECT * FROM activity;")
+print cur.fetchone()
+cur.close()
+conn.close()
+
+
+
+
+
+
