@@ -146,9 +146,6 @@ Starting an instance of RStudio on the
 [ThinkChicago Workbench](https://www.workshop1.nationaldataservice.org/#/) 
 will show a single endpoint.
 
-You can access the IDE via the link corresponding to port 80, while port 8080
-is reserved for application testing with the IDE.
-
 In addition to your username/password, you'll need to enter the RStudio username/password "rstudio/rstudio".
 
 Plot the distribution of year of birth of the first 10,000 records in the Divvy-Trips data:
