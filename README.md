@@ -184,7 +184,7 @@ Use psql to login as the postgres admin:
 psql -U postgres
 ```
 
-Create a database and user for the 2FM data:
+While in your psql session, create a database and user for the 2FM data:
 ```bash
 CREATE DATABASE fm;
 CREATE USER fmuser  WITH ENCRYPTED PASSWORD 'fmpassword';
