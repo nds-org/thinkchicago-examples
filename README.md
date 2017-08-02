@@ -1,5 +1,6 @@
 # thinkchicago-examples
-Examples for ThinkChicago workshop
+
+Examples for ThinkChicago workshop for Cloud9 and RStudio.
 
 # Intro to Cloud9 in Workbench
 Starting up an instance of Cloud9 on the 
@@ -138,3 +139,22 @@ make hello-cpp
 ```
 
 NOTE: This example does not need the test link
+
+# RStudio Examples
+
+Starting an instance of RStudio on the 
+[ThinkChicago Workbench](https://www.workshop1.nationaldataservice.org/#/) 
+will show a single endpoint.
+
+You can access the IDE via the link corresponding to port 80, while port 8080
+is reserved for application testing with the IDE.
+
+In addition to your username/password, you'll need to enter the RStudio username/password "rstudio/rstudio".
+
+Plot the distribution of year of birth of the first 10,000 records in the Divvy-Trips data:
+```bash
+data <- read.csv("/shared/Divvy-Trips/rows.csv", nrows=10000)
+head(data)
+barplot(table(data$BIRTH.YEAR))
+```
+Note: Due to memory constraints, you will not be able to read the entire data file.
