@@ -117,9 +117,11 @@ You may need to install an additional servlet container, such as Tomcat or Jetty
 For example, using Tomcat, you can copy the built WAR into the *webapps/* directory 
 and then start up Tomcat:
 ```bash
-export CATALINE_HOME=/path/to/apache-tomcat
+curl http://apache.cs.utah.edu/tomcat/tomcat-7/v7.0.79/bin/apache-tomcat-7.0.79.zip -o  apache-tomcat-7.0.79.zip
+unzip apache-tomcat-7.0.79.zip
+export CATALINA_HOME=/workspace/apache-tomcat-7.0.79/
 cp target/SimpleServlet-1.war ${CATALINE_HOME}/webapps
-${CATALINE_HOME}/bin/startup.sh
+$CATALINA_HOME/bin/catalina.sh run
 ```
 
 The terminal should show that your webserver has started on
