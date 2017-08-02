@@ -96,7 +96,7 @@ Right click the `/workspace/thinkchicago-examples/php/index.php` file and
 choose **Run**. The terminal should show that your webserver has started on
 port 8080 (by default).
 
-Check the test link and append */thinkchicago-examples/php/index.php* to the
+Check the test link and append **/thinkchicago-examples/php/index.php** to the
 end of the URL and you should see that your PHP application is being served.
 
 ## Java
