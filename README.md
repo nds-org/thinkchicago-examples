@@ -16,7 +16,7 @@ is reserved for application testing with the IDE.
 web development via Cloud9, it will likely be beneficial to keep a tab open
 to the test link at all times.
 
-# Clone this Repository
+## Clone this Repository
 Once you're inside the IDE, you should see a terminal at the bottom.
 
 Inside the terminal, execute this `clone` to copy our examples into your IDE:
@@ -24,8 +24,7 @@ Inside the terminal, execute this `clone` to copy our examples into your IDE:
 git clone https://github.com/nds-org/thinkchicago-examples
 ```
 
-# Cloud9 Examples 
-The terminal allows you to add any packages you want just like an
+The Terminal also allows you to add any packages you want just like an
 Ubuntu shell. This allows you to use `apt-get` to retrieve packages
 or `curl` / `wget` to retrieve and `unzip` binaries.
 
