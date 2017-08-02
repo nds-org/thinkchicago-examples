@@ -24,7 +24,16 @@ Inside the terminal, execute this `clone` to copy our examples into your IDE:
 git clone https://github.com/nds-org/thinkchicago-examples
 ```
 
-# Examples 
+# Cloud9 Examples 
+The terminal allows you to add any packages you want just like an
+Ubuntu shell. This allows you to use `apt-get` to retrieve packages
+or `curl` / `wget` to retrieve and `unzip` binaries.
+
+```bash
+apt-get update
+apt-get install vim
+```
+
 ## Ruby on Rails
 For RoR applications, you can build and test using the terminal and use your
 web browser to debug the application.
@@ -92,26 +101,32 @@ Check the test link and append */thinkchicago-examples/php/index.php* to the
 end of the URL and you should see that your PHP application is being served.
 
 ## Java
-For Java applications, you will need to build using the terminal and using the
-pre-installed instance of Tomcat.
+For Java applications, you will need to build / run using the Cloud9 Terminal.
 
-A simple example in Java:
+A simple example in Java using Maven:
 ```bash
 cd /workspace/thinkchicago-examples/java
 mvn clean package
 ```
 
-Once the build is complete, you'll need to copy the built WAR into the 
-*webapps/* directory and then start up Tomcat:
+NOTE: there is no Debugger support for Java in Cloud9 at this time.
+
+### Servlets
+You may need to install an additional servlet container, such as Tomcat or Jetty.
+
+For example, using Tomcat, you can copy the built WAR into the *webapps/* directory 
+and then start up Tomcat:
 ```bash
-cp target/*.war /opt/tomcat/webapps
-tomcat
+export CATALINE_HOME=/path/to/apache-tomcat
+cp target/SimpleServlet-1.war ${CATALINE_HOME}/webapps
+${CATALINE_HOME}/bin/startup.sh
 ```
 
 The terminal should show that your webserver has started on
-port 8080.
+port 8080, and display progress in unpackaging the WAR file.
 
-Check the test link and you should see your test application running.
+Once the application is ready, check the test link and append **/SimpleServer-1** to the
+end of the URL and you should see that your Java application is being served.
 
 ## C/C++
 For C/C++ applications, you will need to build and run using the Cloud9 Terminal.
