@@ -1,0 +1,25 @@
+# C/C++ build output
+cpp/bin/*
+
+# Java/Eclipse editor settings
+java/.project
+java/.classpath
+java/.settings/*
+
+# Java/Maven build output
+java/**/target/*
+
+# Python cached interpretations
+python/**/*.pyc
+
+# NodeJS dependencies
+nodejs/**/node_modules/*
+nodejs/**/bower_components/*
+
+# Go build output
+go/hello_world
+
+# SSH keys / certificates
+**/*.pem
+**/*.crt
+**/*.key
